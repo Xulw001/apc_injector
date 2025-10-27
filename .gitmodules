@@ -1,0 +1,3 @@
+[submodule "krtl"]
+	path = krtl
+	url = https://github.com/Xulw001/krtl.git
