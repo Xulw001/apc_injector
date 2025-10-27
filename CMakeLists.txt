@@ -23,3 +23,5 @@ add_subdirectory(src/utils libutil)
 add_subdirectory(src/inj injdrv)
 wdk_restore_default_options()
 
+add_subdirectory(src/dll)
+add_subdirectory(src/cli)
