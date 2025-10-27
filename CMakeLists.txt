@@ -20,5 +20,6 @@ set(RTL ${CMAKE_SOURCE_DIR})
 include(${RTL}/krtl/wdk.cmake)
 wdk_clean_default_options()
 add_subdirectory(src/utils libutil)
+add_subdirectory(src/inj injdrv)
 wdk_restore_default_options()
 
