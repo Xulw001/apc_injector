@@ -332,7 +332,10 @@ _Function_class_(KSTART_ROUTINE) static VOID WaitExit(_In_ PVOID context) {
     PINJECT_CONTEXT ctx = (PINJECT_CONTEXT)info->ctx;
     // avoid thread terminated
     if (info->result) {
-        if (!NT_SUCCESS(ctx->status) || !ctx->module) {
+        if (ctx->complete != CALL_COMPLETE) {
+            kTrace("injection failed with timeout\n");
+            info->result = false;
+        } else if (!NT_SUCCESS(ctx->status) || !ctx->module) {
             kTrace("injection failed with status 0x%X\n", ctx->status);
             info->result = false;
         } else {
