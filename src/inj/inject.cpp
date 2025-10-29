@@ -1,5 +1,6 @@
 #include "inject.h"
 
+#include "inject_define.h"
 #include "utils/apc_util.h"
 #include "utils/log_util.h"
 #include "utils/ps_util.h"

@@ -3,6 +3,7 @@
 
 #include <ntifs.h>
 
+#include "inject_define.h"
 #include "thread.h"
 
 namespace inj {
@@ -36,8 +37,8 @@ inline T Get(T a32, T, bool) {
 #endif
 
 // peplace target dll path instead of the value
-const UNICODE_STRING inj_dll32 = RTL_CONSTANT_STRING(L"C:\\Inject\\Demo_x86.dll");
-const UNICODE_STRING inj_dll64 = RTL_CONSTANT_STRING(L"C:\\Inject\\Demo_x64.dll");
+const UNICODE_STRING inj_dll32 = RTL_CONSTANT_STRING(DLL32);
+const UNICODE_STRING inj_dll64 = RTL_CONSTANT_STRING(DLL64);
 
 #define MAX_DLL_PATH 260
 class Inject {
