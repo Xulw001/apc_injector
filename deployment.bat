@@ -14,9 +14,11 @@ echo usage: deployment.bat [-install][-uninstall]
 exit /b
 
 :uninstall
+sc stop inj
 sc delete inj
 exit /b
 
 :install
 sc create inj binPath="@BIN_OUTPUT_DIR@\injdrv.sys" type=kernel
+sc start inj
 exit /b
