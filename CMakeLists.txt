@@ -35,3 +35,5 @@ wdk_restore_default_options()
 
 add_subdirectory(src/dll)
 add_subdirectory(src/cli)
+
+configure_file("deployment.bat" "${TARGET_DIRECTORY}\\deployment.bat")
