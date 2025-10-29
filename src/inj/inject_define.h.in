@@ -1,0 +1,5 @@
+#ifndef INJECT_DEFINE_H
+#define INJECT_DEFINE_H
+#define DLL32 LR"(@DLL32@)"
+#define DLL64 LR"(@DLL64@)"
+#endif

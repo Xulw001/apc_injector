@@ -7,11 +7,21 @@ else()
     set(ARCH "x86")
 endif()
 
-set(BIN_OUTPUT_DIR ${CMAKE_BINARY_DIR}/../output/bin/${ARCH})
-set(LIB_OUTPUT_DIR ${CMAKE_BINARY_DIR}/../output/lib/${ARCH})
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BIN_OUTPUT_DIR})
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${LIB_OUTPUT_DIR})
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${LIB_OUTPUT_DIR})
+if(NOT TARGET_DIRECTORY)
+    set(TARGET_DIRECTORY [==[C:\Inject]==])
+endif()
+
+# Set Target Output Path
+set(BIN_OUTPUT_DIR ${TARGET_DIRECTORY}\\bin\\${ARCH})
+set(LIB_OUTPUT_DIR ${TARGET_DIRECTORY}\\lib\\${ARCH})
+
+# Set Default Target Output Path
+foreach(config DEBUG RELEASE RELWITHDEBINFO)
+    set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_${config} ${BIN_OUTPUT_DIR})
+    set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_${config} ${LIB_OUTPUT_DIR})
+    set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${config} ${LIB_OUTPUT_DIR})
+endforeach()
+
 link_directories(${LIB_OUTPUT_DIR})
 
 set(INJ_ROOT ${CMAKE_SOURCE_DIR})
